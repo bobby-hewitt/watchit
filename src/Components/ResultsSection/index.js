@@ -11,7 +11,7 @@ const ResultsSection = (props) => {
 		const contentType =state.contentTypes.find((c) => c.selected).id
 		// console.log(contentType)
 		// console.log(props.query)
-		const url = `/view-more`
+		const url = `/watchit/view-more`
 		navigate(url, false, { type: contentType, query: props.query, title: props.title})
 	}
 	return(

@@ -33,8 +33,17 @@ export const getMovie = (id) => {
 			resolve(data)
 		})
 	})
-	
 }
+
+export const getPerson = (id) => {
+	return new Promise((resolve, reject) => {
+		const url = `https://api.themoviedb.org/3/person/${id}?api_key=${key}&append_to_response=combined_credits`
+		$.get(url, (data) => {
+			resolve(data)
+		})
+	})
+}
+
 
 export const getShow = (id) => {
 	return new Promise((resolve, reject) => {

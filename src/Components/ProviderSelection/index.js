@@ -20,12 +20,13 @@ const ProviderSelection = (props) => {
 		
 		if (!selected || (selected && selected.length === 0)){
 			
-			return state.setNotification({
+			 state.setNotification({
 				count: state.notification.count + 1,
 				text: "Pssst.. this works better when you've got all your streaming services selected"
 			})
 			
 		} 
+		// console.log('here' newProviders)
 		 if (window.localStorage){
 			state.setProviders(newProviders)
 			window.localStorage.setItem('streamingProviders', JSON.stringify(newProviders))

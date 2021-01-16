@@ -24,7 +24,7 @@ const HeroCard = ({size, name, title, overview, runtime, genres, pageHeader, bac
 	return(
 		<div className={`heroCardOuterContainer ${size} ${isInfo && 'isInfo'} ${pageHeader && 'pageHeader'} ${index === 0 && window.innerWidth > 991 && 'hero'}`} onClick={() => {
 			if (isNavigable){
-				navigate(`/${media_type}/${id}`)
+				navigate(`/watchit/${media_type}/${id}`)
 			}
 		}}>
 		<div className={`heroCardContainer`}>

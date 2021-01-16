@@ -8,6 +8,7 @@ import providersInit from 'Data/providers'
 import genresInit from 'Data/genres'
 import contentTypesInit from 'Data/contentType'
 import { getRails } from './resultsSplitter'
+import { navigate } from 'hookrouter'
 // import $ from 'jquery'
 const ProviderComponent = props => {  
   const [providers, setFinalProviders] = useState(getProviders());
@@ -21,6 +22,8 @@ const ProviderComponent = props => {
   const [ notification, setNotification] = useState({count: 0, text: ''})
   const [ showMenu, setShowMenu ] = useState(false)
   let scrollTop = window.scrollY
+
+
   function getProviders(){
     if (window.localStorage){
       let streamingProviders = localStorage.getItem('streamingProviders');
@@ -39,14 +42,28 @@ const ProviderComponent = props => {
   }
 
   useEffect(() => {
+
+      const filteredProviders = providers.filter((g) => g.selected)
+
+      if (filteredProviders.length === 0){
+        console.log('filtered', filteredProviders)
+        setModal({
+          title:"Let's find something to watch",
+          description: "Let us know what services you're subscribed to so we can find something to watch. If you're happy to pay for something then you can just skip this.",
+          type: 'providers'
+        })
+      }
       const rails = getRails({
         genres: genres.filter((g) => g.selected), 
         contentTypes: contentTypes.filter((g) => g.selected), 
-        providers: providers.filter((g) => g.selected), 
+        providers: filteredProviders
       }).then((rails) => {
+
         setFinalResults(rails)
       }) 
   },[])
+
+
 
   useEffect(() => {
      window.addEventListener("scroll", onWindowScroll);

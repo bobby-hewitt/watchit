@@ -68,12 +68,13 @@ z-index: 10000000;
 		top:0px;
 		left:0;
 		right:0;
+		z-index: 1;
 		background-image:linear-gradient(to bottom, #202020ff, #202020ff,#20202000)!important;
 		.buttonContainer{
 			position: absolute;
 			top:22px;
 			width:auto;
-			right:var(--grid-offset);
+			right:12px;
 		}
 
 	}
@@ -99,11 +100,20 @@ z-index: 10000000;
 }
 
 @media only screen and (max-width: 991px) {
+	.modalFixedHeader{
+		
+		.buttonContainer{
+		
+			right:var(--grid-offset);
+		}
+
+	}
  .modalContainer{
  	padding: 0 var(--grid-offset)!important;
  	.modalInner{
  		// padding: 0 var(--grid-offset)!important;
  	}
+
  	position: relative;
  	width:100%	!important;
  	height:100%	!important;

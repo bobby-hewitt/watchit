@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="104px" height="104px" viewBox="0 0 104 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 8</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PointsMatrix_Rules" transform="translate(-7492.000000, -1237.000000)" fill="#FFFFFF">
+            <g id="noun_edit_3555214" transform="translate(7492.000000, 938.000000)">
+                <g id="noun_edit_3094244" transform="translate(0.000000, 213.000000)">
+                    <g id="Group-8" transform="translate(0.000000, 86.000000)">
+                        <rect id="Rectangle" x="44" y="0" width="16" height="104" rx="8"></rect>
+                        <rect id="Rectangle" transform="translate(52.000000, 52.000000) rotate(90.000000) translate(-52.000000, -52.000000) " x="44" y="0" width="16" height="104" rx="8"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
