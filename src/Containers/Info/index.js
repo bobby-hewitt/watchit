@@ -32,7 +32,7 @@ const CastAndCrewRails = ({cast, crew}) => {
 				}
 			}
 			data = data.sort((a,b) => b.popularity - a.popularity)
-			console.log('returning data')
+			
 			return data
 		}
 	}
@@ -67,6 +67,53 @@ const CastAndCrewRails = ({cast, crew}) => {
 	
 }
 
+
+const Similar = ({content, type}) => {
+	const state = useContext(Context)
+	const [ filteredContent, setFilteredContent] = useState(	filterContent())
+
+
+
+	function filterContent(){
+		let providers = state.providers.filter((p) => p.selected )
+		let providerIds = providers.map((p) => p.provider_id)
+		
+		let newContent = []
+		for (var i = content.length - 1; i >= 0; i--) {
+			let providers = []
+			if (content[i]['watch/providers'].results['GB']){
+				let free = content[i]['watch/providers'].results['GB'].free  ? content[i]['watch/providers'].results['GB'].free : []
+				let flatrate = content[i]['watch/providers'].results['GB'].flatrate ?content[i]['watch/providers'].results['GB'].flatrate : []
+				let itemProviders = free.concat(flatrate)
+				
+				
+				for (var j = itemProviders.length - 1; j >= 0; j--) {
+					let isMatch = providerIds.indexOf(itemProviders[j].provider_id) > -1
+					if (isMatch){
+						newContent.push(content[i])
+					}
+				}
+
+			}
+			
+		}
+		return newContent
+		// console.log('newContent', newContent)
+	}
+
+	return (
+		<React.Fragment>
+			<div className="spacer"/>
+			<SectionTitle title="Related Titles"/>
+			<div className="similarContainer">
+				{filteredContent.slice(0,12).map((info, i ) => {
+					return <ContentCard {...info} media_type={type} key={i} />
+				})}
+			</div>
+			</React.Fragment>
+	)
+}
+
 const Info = ({id, type}) => {
 	const [info, setInfo] = useState(null)
 	const globalState = useContext(Context)
@@ -86,7 +133,7 @@ const Info = ({id, type}) => {
 			getPerson(id).then((data) => {
 				window.scrollTo(0,0)
 				data.media_type = 'person'
-				console.log(data)
+				
 				setInfo(data)
 			})
 		}
@@ -125,7 +172,6 @@ const Info = ({id, type}) => {
 	
 
 let watchproviders = info ?info['watch/providers'] : []
-console.log('watchproviders', watchproviders)
 const cast = info && info.credits && info.credits.cast ? info.credits.cast : []
 // const image = 	info ? info.backdrop_path ? 
 // 					info.backdrop_path : 
@@ -142,8 +188,6 @@ const cast = info && info.credits && info.credits.cast ? info.credits.cast : []
 	if (info){
 	return (
 		<div className={`infoOuterContainer ${info && 'isVisible'}`} >
-			
-		
 			<div className={`infoHeroOuterContainer`}>
 				<div className={`infoHeroContainer`}>
 					<div className={`image`} style={{backgroundImage: `url( http://image.tmdb.org/t/p/w780/${info.backdrop_path || info.profile_path})`}}>
@@ -180,15 +224,7 @@ const cast = info && info.credits && info.credits.cast ? info.credits.cast : []
 			})}}>{info.overview || info.biography}</p>
 		</div>
 		{info && info.similar && info.similar.results && info.similar.results.length > 0 &&
-			<React.Fragment>
-			<div className="spacer"/>
-			<SectionTitle title="Related Titles"/>
-			<div className="similarContainer">
-				{info && info.similar && info.similar && info.similar.results && info.similar.results.slice(0,12).map((info, i ) => {
-					return <ContentCard {...info} media_type={type} key={i} />
-				})}
-			</div>
-			</React.Fragment>
+			<Similar content={info.similar.results} type={type}/>
 		}
 		{type === 'person' && 
 			<CastAndCrewRails {...info.combined_credits} />

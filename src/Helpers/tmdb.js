@@ -27,8 +27,26 @@ export const getMoviesPage = (query, page) => {
 
 }
 export const getMovie = (id) => {
+	console.log("getting movie")
 	return new Promise((resolve, reject) => {
 		const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&append_to_response=credits,watch/providers,recommended,similar,`
+		$.get(url, (data) => {
+			console.log(data)
+			let arr = data.similar.results.map((d) => getSimilarMovies(d.id))
+			Promise.all(arr).then((similarMovies) => {
+				data.similar.results = similarMovies
+				console.log(data)
+				resolve(data)
+			})
+
+			
+		})
+	})
+}
+
+function getSimilarMovies(id){
+	return new Promise((resolve, reject) => {
+		const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&append_to_response=watch/providers`
 		$.get(url, (data) => {
 			resolve(data)
 		})
