@@ -1,0 +1,12 @@
+.providersContainer{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+		align-items: flex-start;
+	justify-content: flex-end;
+	display: flex;
+	width:50%;
+	position: absolute;
+	top:50px;
+	right:var(--grid-offset);
+}

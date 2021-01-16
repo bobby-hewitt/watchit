@@ -1,0 +1,45 @@
+@import 'grid.scss';
+
+.viewMoreContainerOuter{
+
+	position: absolute;
+	top:0;
+
+	padding: 50px var(--grid-offset) 0 var(--grid-offset);
+	max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    margin-top:28px;
+    .viewMoreTitleContainer{
+    	position: absolute;
+    	.backButtonContainer{
+    		position: relative;
+    	}
+    	position: absolute;
+    	top:60px;
+    	left:var(--grid-offset);
+    }
+.viewMoreContainer{
+	// max-width: 100vw;
+	// overflow-x: hidden;
+	margin-top:12px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	// margin-top:50px;
+}
+.loading{
+	// height:1000px;
+	
+	width:100%;
+}
+
+
+}
+
+
+@media only screen and (max-width: 991px) {
+.resultsContainerOuter{
+	margin-top: 50px;
+}
+}

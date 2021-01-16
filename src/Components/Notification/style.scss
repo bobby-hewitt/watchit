@@ -1,0 +1,38 @@
+.notificationContainer{
+	position: fixed;
+	bottom:20px;
+	left:50%;
+	transform:translate(-50%, 100%);
+	background:#333;
+	padding:12px;
+	border-radius: 4px;
+	box-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+	transition:all 0.3s ease;
+	opacity: 0;
+	z-index: 100000000000;
+	p{
+		color:white;
+		font-weight: bold;
+		text-align: center;
+		opacity: 0.75;
+	}
+	&.show{
+		opacity: 1;
+		transform:translate(-50%, 0);
+	}
+
+}
+
+@media only screen and (max-width: 991px) {
+.notificationContainer{
+	bottom:20px;
+	left:20px;
+	right:20px;
+	width: auto;
+	transform:translate(0%, 100%);
+	
+	&.show{
+	transform:translate(0%, 0);	
+	}
+}
+}

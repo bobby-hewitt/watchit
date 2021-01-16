@@ -1,0 +1,67 @@
+@import 'grid.scss';
+
+$width: calc((var(--grid-col-width) * 2) + (var(--grid-gutter) * 2));;
+$height: calc(#{$width} / 2 * 3);
+$largeWidth: calc((var(--grid-col-width) * 3) + (var(--grid-gutter) * 4));;
+$largeHeight: calc(#{$largeWidth} / 2 * 3);
+
+// .contentCardContainer{
+// 	width:200px;
+// 	height:300px;
+// 	background-size:cover;
+// 	background-position:center;
+// 	&.large{
+// 		width:400px;
+// 		height:600px;
+// 	}
+// }
+
+
+
+.contentCardContainer{
+	z-index: 1;
+	cursor: pointer;
+	border-radius: 4px;
+	overflow: hidden;
+	position:relative;
+	margin: 0 calc(var(--grid-gutter) * 2) calc(var(--grid-gutter) * 2) 0;
+	background-image:linear-gradient(to top right, #ffffff05, #ffffff33);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width:$width;
+	height:$height;
+	&.large{
+		width:$largeWidth;
+		height:$largeHeight;
+	}
+	h3{
+		padding:12px;
+		text-align:center;
+		color:white;
+		opacity: 0.5;
+	}
+	div{
+		position: absolute;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0;
+			background-size:cover;
+	background-position:center;
+
+	}
+
+}
+
+
+@media only screen and (max-width: 991px) {
+	.contentCardContainer{
+		&.large{
+		width:$width;
+		height:$height;
+	}	
+	
+}
+
+}

@@ -1,0 +1,39 @@
+.backButtonContainer{
+	position: fixed!important;
+	z-index: 100;
+	top:20px;
+	width:44px;
+	height:44px;
+	left:var(--grid-offset);
+	cursor:pointer;
+	display: flex;
+	flex-direction: row;
+	// width:100%;
+	// justify-content: center;
+	align-items:center;
+	.sectionTitle{
+		margin:0!important;
+		margin-left:12px!important;
+		min-width:100vw!important;
+
+	}
+	img{
+		// box-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+		height:33px;
+		width:33%;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.backButtonContainer{
+		position: absolute;
+		top:var(--grid-offset);;
+		width:44px;
+		height:44px;
+		left:var(--grid-offset);
+		img{
+			width:33%;
+		}
+	}
+
+}

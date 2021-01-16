@@ -1,0 +1,18 @@
+.pillContainer{
+	// border:1px solid white;
+	height:28px;
+	border-radius:14px;
+	padding:0 8px;
+	margin:0 4px 4px 0;
+	cursor:pointer;
+	background: #10101088;
+	p{
+		color:white;
+	}
+	&.selected{
+		background:white;
+		p{
+			color:#101010;
+		}
+	}
+}

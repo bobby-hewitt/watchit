@@ -1,0 +1,4 @@
+export { default as Home } from './Home'
+export { default as ViewMore } from './ViewMore'
+export { default as Info } from './Info'
+export { default as NotFound } from './NotFound'

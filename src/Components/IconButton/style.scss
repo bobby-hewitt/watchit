@@ -1,0 +1,21 @@
+.iconButtonContainer{
+			opacity: 0.5;
+			height:36px;
+			width:36px;
+			border-radius: 4px;
+			margin-left:4px;
+			display: flex;
+			align-items:center;
+			justify-content: center;
+			border: 1px solid white;
+			// background:green;
+			&.noBorder{
+				opacity: 1;
+				border: 1px solid transparent;
+			}
+			img{
+				max-width:50%;
+				max-height:50%;
+				border-radius:4px;
+			}	
+		}

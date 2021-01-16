@@ -1,0 +1,108 @@
+@import 'grid.scss';
+.menuOuterContainer{
+	padding: 0 var(--grid-offset);
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	z-index: 3;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	// justify-content: center;
+	height:84px;
+	.desktopFilterContainer{
+		display: flex;
+		flex-direction: row;
+	}
+	.horizontalSpacer{
+		width:12px;
+		height:12px;
+		// background: red;
+	}
+	.mobileFilterContainer{
+		display: none;
+	}
+	// background:linear-gradient(to bottom, #101010 , #10101000);
+	// border-bottom: 2px solid rgb(20,20,50);
+	background:linear-gradient(to top, #10101000, #101010ff);
+	.selectorsContainer{	
+		height:100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+	.providersMenuContainer{
+		flex:1;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+		cursor: pointer;
+		right:var(--grid-offset);
+
+		.providerIndicator{
+			height:36px;
+			width:36px;
+			border-radius: 4px;
+			margin-left:4px;
+			border: 1px solid transparent;
+		}
+		
+	}
+	transition: all 0.3s ease;
+	transform:translateY(0);
+	// opacity: 1;
+	// box-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+	&.visible{
+	// opacity: 0;
+	transform:translateY(-100%);
+	}
+}
+
+
+@media only screen and (max-width: 991px) {
+ .menuOuterContainer{
+ 	.desktopFilterContainer{
+ 		display: none;
+ 	}
+ 	.mobileFilterContainer{
+ 		height:100%;
+ 		display: flex;
+ 		align-items:center;
+ 		justify-content: center; 		
+ 		position: absolute;
+ 		right:0;
+ 		
+ 		transform:translate(-50%);
+ 		top:0;
+ 	}
+ 	padding-top:12px;
+ 	flex-direction: column-reverse;
+ 	// height:auto;
+ 	// height:50px;
+ 	margin:0;
+ 	padding: 0 var(--grid-offset);
+ 	align-items:flex-start;
+ 	justify-content:flex-start;
+ 
+ }
+ .selectorsContainer{
+ 	display: flex;
+ 	align-items:center;
+ 	justify-content: center;
+ 	// background:red;
+ 	padding:12px 0 0 0;
+ }
+ .providersMenuContainer{
+ 	display: none!important;
+ 	visibility: hidden;
+
+ 	flex-direction: row-reverse;
+ 	.providerIndicator, .editProviders{
+ 		width:36px!important;
+ 		height:36px!important;
+ 	}
+ }
+}
