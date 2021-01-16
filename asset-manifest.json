@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/watchit/static/css/main.96aaa239.chunk.css",
-    "main.js": "/watchit/static/js/main.274954a8.chunk.js",
-    "main.js.map": "/watchit/static/js/main.274954a8.chunk.js.map",
+    "main.js": "/watchit/static/js/main.efe6ec7f.chunk.js",
+    "main.js.map": "/watchit/static/js/main.efe6ec7f.chunk.js.map",
     "runtime-main.js": "/watchit/static/js/runtime-main.75b541aa.js",
     "runtime-main.js.map": "/watchit/static/js/runtime-main.75b541aa.js.map",
     "static/js/2.505dcbea.chunk.js": "/watchit/static/js/2.505dcbea.chunk.js",
     "static/js/2.505dcbea.chunk.js.map": "/watchit/static/js/2.505dcbea.chunk.js.map",
     "index.html": "/watchit/index.html",
-    "precache-manifest.e3e08797d838f5eb8a14e5202cbceaf4.js": "/watchit/precache-manifest.e3e08797d838f5eb8a14e5202cbceaf4.js",
+    "precache-manifest.3d1e4c64e4d813e61033dd5cd5b0128e.js": "/watchit/precache-manifest.3d1e4c64e4d813e61033dd5cd5b0128e.js",
     "service-worker.js": "/watchit/service-worker.js",
     "static/css/main.96aaa239.chunk.css.map": "/watchit/static/css/main.96aaa239.chunk.css.map",
     "static/media/check.svg": "/watchit/static/media/check.f878000c.svg",
