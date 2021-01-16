@@ -24,7 +24,7 @@ const ResultsSection = (props) => {
 			
 				<div className="CTAContainer">
 				{props.viewMore && 
-					<Button secondary opaque label={"View all " + props.title.toLowerCase()}  tertiary onClick={onClick}/>
+					<Button secondary opaque label={" . . . " }  tertiary onClick={onClick}/>
 				}
 				</div>
 			
