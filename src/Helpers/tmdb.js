@@ -20,6 +20,7 @@ export const getMoviesPage = (query, page) => {
 		$.get(url, (data) => {
 			for(var i = 0; i < data.results.length; i++){
 				data.results[i].media_type = 'movie'
+
 			}
 			resolve(data.results)
 		})
@@ -27,15 +28,14 @@ export const getMoviesPage = (query, page) => {
 
 }
 export const getMovie = (id) => {
-	console.log("getting movie")
+	
 	return new Promise((resolve, reject) => {
 		const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&append_to_response=credits,watch/providers,recommended,similar,`
 		$.get(url, (data) => {
-			console.log(data)
+			
 			let arr = data.similar.results.map((d) => getSimilarMovies(d.id))
 			Promise.all(arr).then((similarMovies) => {
 				data.similar.results = similarMovies
-				console.log(data)
 				resolve(data)
 			})
 
@@ -49,6 +49,16 @@ function getSimilarMovies(id){
 		const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&append_to_response=watch/providers`
 		$.get(url, (data) => {
 			resolve(data)
+		})
+	})
+}
+
+function getSimilarShows(id){
+	return new Promise((resolve, reject) => {
+		const url = `https://api.themoviedb.org/3/tv/${id}?api_key=${key}&append_to_response=watch/providers`
+		$.get(url, (data) => {
+			resolve(data)
+
 		})
 	})
 }
@@ -67,14 +77,19 @@ export const getShow = (id) => {
 	return new Promise((resolve, reject) => {
 		const url = `https://api.themoviedb.org/3/tv/${id}?api_key=${key}&append_to_response=credits,watch/providers,recommended,similar,`
 		$.get(url, (data) => {
-			resolve(data)
+			let arr = data.similar.results.map((d) => getSimilarShows(d.id))
+			Promise.all(arr).then((similarMovies) => {
+				data.similar.results = similarMovies
+				resolve(data)
+			})
+			
 		})
 	})
 }
 
 
 export const getMovies = (query, nextPage) => {
-	console.log('getting moveis')
+	
 	return new Promise((resolve, reject) => {
 		let page = 1
 

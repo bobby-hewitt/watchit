@@ -81,7 +81,7 @@ const Similar = ({content, type}) => {
 		let newContent = []
 		for (var i = content.length - 1; i >= 0; i--) {
 			let providers = []
-			if (content[i]['watch/providers'].results['GB']){
+			if (content[i]['watch/providers'] && content[i]['watch/providers'].results && content[i]['watch/providers'].results['GB']){
 				let free = content[i]['watch/providers'].results['GB'].free  ? content[i]['watch/providers'].results['GB'].free : []
 				let flatrate = content[i]['watch/providers'].results['GB'].flatrate ?content[i]['watch/providers'].results['GB'].flatrate : []
 				let itemProviders = free.concat(flatrate)
@@ -104,12 +104,15 @@ const Similar = ({content, type}) => {
 	return (
 		<React.Fragment>
 			<div className="spacer"/>
+			{filteredContent && filteredContent.length > 0 &&
 			<SectionTitle title="Related Titles"/>
+		}
 			<div className="similarContainer">
 				{filteredContent.slice(0,12).map((info, i ) => {
 					return <ContentCard {...info} media_type={type} key={i} />
 				})}
 			</div>
+
 			</React.Fragment>
 	)
 }
